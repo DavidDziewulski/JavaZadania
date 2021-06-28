@@ -5,11 +5,13 @@ public class Car {
     final public String producer;
     final private String vin;
     public String motor;
+    Double value;
 
-    Car(  String producer, String model,String motor,String vin){
+    Car(  String producer, String model,String motor,String vin,Double value){
         this.producer = producer;
         this.model = model;
         this.motor = motor;
         this.vin = vin;
+        this.value = value;
     }
 }

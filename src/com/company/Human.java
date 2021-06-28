@@ -7,7 +7,7 @@ public class Human {
     Integer age;
     Phone mobilePhone;
     Animal pet;
-    Car vehicle;
+    private Car vehicle;
     private Double salary;
 
     public Human(String firstName, String lastName, String sex, Integer age, Phone mobilePhone, Animal pet) {
@@ -37,5 +37,17 @@ public class Human {
         }
 
 
+    }
+    public Car getCar(){
+        return this.vehicle;
+    }
+    public void setCar(Car new_car){
+        if(new_car.value <= this.salary){
+            System.out.println("Zarabiasz dużo więc i fura jest!");
+        }else if(new_car.value/12 <= this.salary){
+            System.out.println("Udało się kupić auto na kredyt -_-");
+        }else{
+            System.out.println("Stary idź na studia albo po podwyżkę bo nie będziesz miał auta nigdy!");
+        }
     }
 }
