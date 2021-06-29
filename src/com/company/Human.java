@@ -3,6 +3,10 @@ import creatures.Animal;
 import devices.Car;
 import devices.Phone;
 
+import java.awt.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 public class Human {
     String firstName;
@@ -12,7 +16,7 @@ public class Human {
     Phone mobilePhone;
     Animal pet;
     Double cash;
-    private Car vehicle;
+    public Car[] garage;
     private Double salary;
 
     public Human(String firstName, String lastName, String sex, Integer age, Phone mobilePhone, Animal pet) {
@@ -22,6 +26,17 @@ public class Human {
         this.age = age;
         this.mobilePhone = mobilePhone;
         this.pet = pet;
+        this.garage = new Car[2];
+    }
+    public Human(String firstName, String lastName, String sex, Integer age, Phone mobilePhone, Animal pet, Integer vehicles, Car [] listOfVehicles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.sex = sex;
+        this.age = age;
+        this.mobilePhone = mobilePhone;
+        this.pet = pet;
+        this.garage = new Car[vehicles];
+        this.garage = listOfVehicles;
     }
 
     public double getSalary() {
@@ -43,17 +58,11 @@ public class Human {
 
 
     }
-    public Car getCar(){
-        return this.vehicle;
+    public Car getCar(Integer place_num){
+        return this.garage[place_num];
     }
-    public void setCar(Car new_car){
-        if(new_car.value <= this.salary){
-            System.out.println("Zarabiasz dużo więc i fura jest!");
-        }else if(new_car.value/12 <= this.salary){
-            System.out.println("Udało się kupić auto na kredyt -_-");
-        }else{
-            System.out.println("Stary idź na studia albo po podwyżkę bo nie będziesz miał auta nigdy!");
-        }
+    public void setCar(Car new_car, Integer place_num){
+       this.garage[place_num] = new_car;
     }
     public void setPet(Animal new_pet){
         this.pet = new_pet;
@@ -77,4 +86,28 @@ public class Human {
     public String toString(){//overriding the toString() method
         return "FirstName:"+this.firstName+"LastName:"+this.lastName+"Sex:"+this.sex+"Age"+this.age;
     }
-}
+    public Double calculatedValue (){
+        Double result = 0.0;
+        for(Car auto:garage){
+            result+=auto.getValue();
+        }
+        return result;
+    }
+       public void sortByYear(){
+            Car temp;
+            int zmiana = 1;
+            while(zmiana > 0){
+                zmiana = 0;
+                for(int i=0; i<this.garage.length-1; i++){
+                    if(this.garage[i].yearOfProduction>this.garage[i+1].yearOfProduction){
+                        temp = garage[i+1];
+                        garage[i+1] = garage[i];
+                        garage[i] = temp;
+                        zmiana++;
+                    }
+                }
+            }
+    System.out.println("Posortowane!");
+        }
+
+    }

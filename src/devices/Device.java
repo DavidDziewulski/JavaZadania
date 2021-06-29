@@ -3,7 +3,8 @@ package devices;
 public abstract class Device {
     final public String model;
     final public String producer;
-    final public Integer yearOfProduction;
+    public Integer yearOfProduction;
+    Double value;
     public abstract void turnOn();
 
     protected Device(String model, String producer, Integer yearOfProduction) {
@@ -15,4 +16,5 @@ public abstract class Device {
     public String toString(){//overriding the toString() method
         return "Producer:"+this.producer+"Model:"+this.model+"Year Of Production"+this.yearOfProduction;
     }
+
 }

@@ -9,23 +9,26 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static <Lpg> void main(String[] args) {
+    public static  void main(String[] args) {
 		Phone iphone = new Phone("Iphone","Se",2015,"IOS",5.4);
-		iphone.installAnApp("react");
-		iphone.installAnApp("react","8.9");
-		iphone.installAnApp("react","8.9","www.adf.pl");
-		ArrayList<String> list = new ArrayList<String>();
-		list.add("good");
-		list.add("notGood");
-		iphone.installAnApp(list);
-
-		Electric tesla = new Electric("S11","Tokyo",2019,"1.0","ksdin124",12000.0);
-		Disel passat = new Disel("Passat","Germany",1992,"1.9TDI","mlmpgdfkgmk1",15000.0);
+		Disel passat = new Disel("Passat","Germany",2005,"1.9TDI","mlmpgdfkgmk1",15000.0);
 		LPG honda = new LPG("civic","Japonia",2002,"3.2","sdfsdg12dsf",32000.0);
+		Pet szarik = new Pet("felies");
+		Car[] lista = {passat,honda};
+        Human dawid = new Human("Dawid","dz","male",25,iphone,szarik,2,lista);
+		Human bartek = new Human("Bartek","dz","male",25,iphone,szarik);
+		dawid.setCash(1000.00);
+		bartek.setCash(2000.0);
+//		System.out.println(dawid.garage[0]);
+//		System.out.println(dawid.garage[1]);
+        dawid.sortByYear(); // Sortuje
+//		System.out.println(dawid.garage[0]); // Sprawdzam czy dobrze posortowało
+//		System.out.println(dawid.garage[1]); // Sprawdzam czy dobrze posortowało
+//		System.out.println(dawid.calculatedValue()); // Wypisuje wartość Aut w Garażu
+		passat.sell(dawid,bartek,100.00,passat);
+		passat.sell(dawid,bartek,100.0,passat);
 
-		tesla.refuel();
-		passat.refuel();
-		honda.refuel();
+
     }
 
 }
