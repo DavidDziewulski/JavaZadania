@@ -3,8 +3,8 @@ package devices;
 import com.company.Human;
 
 public class Electric extends Car{
-    public Electric(String producer, String model, Integer yearOfProduction, String motor, String vin, Double value) {
-        super(producer, model, yearOfProduction, motor, vin, value);
+    public Electric(String producer, String model, Integer yearOfProduction, String motor, String vin, Double value, Human owner) {
+        super(producer, model, yearOfProduction, motor, vin, value, owner);
     }
 
     @Override
