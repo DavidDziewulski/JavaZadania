@@ -1,4 +1,4 @@
-package com.company;
+package devices;
 
 public class Phone {
     String producer;
@@ -6,7 +6,7 @@ public class Phone {
     String operationSystem;
     Double screenSize;
 
-    Phone( String producer, String model, String operationSystem, Double screenSize){
+    public Phone( String producer, String model, String operationSystem, Double screenSize){
         this.model = model;
         this.producer = producer;
         this.operationSystem = operationSystem;
@@ -16,5 +16,9 @@ public class Phone {
 
     String getOsVersion(){
         return "5.32.1";
+    }
+    @Override
+    public String toString(){//overriding the toString() method
+        return "Producer:"+this.producer+"Model:"+this.model+"OperationSystem:"+this.operationSystem+"ScreenSize:"+this.screenSize;
     }
 }

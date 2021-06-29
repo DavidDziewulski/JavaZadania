@@ -7,7 +7,6 @@ public class Animal {
     static final public Double DEFAULT_ANIMAL_WEIGHT = 1.0;
     public Animal(String species) {
         this.species = species;
-
         switch(this.species){
             case "canis familiaris" :
                 this.weight = 10.0;
@@ -39,5 +38,9 @@ public class Animal {
         }
         this.weight -= 1.5;
         System.out.println("Dziękuje za spacer");
+    }
+    @Override
+    public String toString(){//overriding the toString() method
+        return "Name:"+this.name+"Species:"+this.species+"Weight:"+this.weight;
     }
 }

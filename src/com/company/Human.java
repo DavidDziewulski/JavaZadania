@@ -1,4 +1,7 @@
 package com.company;
+import devices.Car;
+import devices.Phone;
+
 import java.util.Date;
 public class Human {
     String firstName;
@@ -49,5 +52,8 @@ public class Human {
         }else{
             System.out.println("Stary idź na studia albo po podwyżkę bo nie będziesz miał auta nigdy!");
         }
+    }
+    public String toString(){//overriding the toString() method
+        return "FirstName:"+this.firstName+"LastName:"+this.lastName+"Sex:"+this.sex+"Age"+this.age;
     }
 }
