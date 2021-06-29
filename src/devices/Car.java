@@ -1,5 +1,7 @@
 package devices;
-public class Car extends Device {
+import com.company.Human;
+import com.company.Salleable;
+public class Car extends Device implements Salleable {
     final public String model;
     final public String producer;
     final private String vin;
@@ -41,4 +43,24 @@ public class Car extends Device {
         System.out.println("Samochód został odpalony!");
     }
 
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if(seller.getCar() == null){
+            System.out.println("Niestety sprzedający nie ma auta");
+        }
+        else{
+            if(buyer.getCash() >= price){
+                seller.setCash(seller.getCash()+price);
+                buyer.setCash(buyer.getCash()-price);
+                seller.setCar(null);
+                buyer.setCar(seller.getCar());
+                System.out.println("Kupujący kupił auto");
+            }
+            else{
+                System.out.println("Niestety nie masz tyle kasy");
+            }
+        }
+
+    }
 }
+

@@ -10,6 +10,7 @@ public class Human {
     Integer age;
     Phone mobilePhone;
     Animal pet;
+    Double cash;
     private Car vehicle;
     private Double salary;
 
@@ -52,6 +53,25 @@ public class Human {
         }else{
             System.out.println("Stary idź na studia albo po podwyżkę bo nie będziesz miał auta nigdy!");
         }
+    }
+    public void setPet(Animal new_pet){
+        this.pet = new_pet;
+
+    }
+    public Animal getPet(){
+        return this.pet;
+    }
+    public void setPhone(Phone new_phone){
+        this.mobilePhone = new_phone;
+    }
+    public Phone getPhone(){
+        return this.mobilePhone;
+    }
+    public void setCash(Double new_cash){
+        this.cash = new_cash;
+    }
+    public Double getCash(){
+        return this.cash;
     }
     public String toString(){//overriding the toString() method
         return "FirstName:"+this.firstName+"LastName:"+this.lastName+"Sex:"+this.sex+"Age"+this.age;
