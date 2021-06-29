@@ -1,12 +1,14 @@
 package devices;
-public class Car {
+public class Car extends Device {
     final public String model;
     final public String producer;
     final private String vin;
     public String motor;
     public Double value;
+    Integer yearOfProduction;
 
-    public Car(  String producer, String model,String motor,String vin,Double value){
+    public Car(  String producer, String model,Integer yearOfProduction,String motor,String vin,Double value){
+        super(model,producer,yearOfProduction);
         this.producer = producer;
         this.model = model;
         this.motor = motor;
@@ -35,9 +37,8 @@ public class Car {
         else
             return true;
     }
-    @Override
-    public String toString(){//overriding the toString() method
-        return "Model:"+this.model+"Producer:"+this.producer+"Vin:"+this.vin+ "Motor:"+this.motor+"Value:"+this.value;
+    public void turnOn(){
+        System.out.println("Samochód został odpalony!");
     }
 
 }
