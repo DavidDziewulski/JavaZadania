@@ -1,7 +1,7 @@
 package devices;
 import com.company.Human;
 import com.company.Salleable;
-public class Car extends Device implements Salleable {
+public abstract class Car extends Device implements Salleable {
     final public String model;
     final public String producer;
     final private String vin;
@@ -62,5 +62,7 @@ public class Car extends Device implements Salleable {
         }
 
     }
+
+    public abstract void refuel();
 }
 
