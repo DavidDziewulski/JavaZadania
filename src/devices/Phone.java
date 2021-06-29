@@ -5,7 +5,7 @@ import com.company.Salleable;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
+import java.util.*;
 
 public class Phone extends Device implements Salleable {
     private static final String DEFAULT_APP_VERSION = "latest" ;
@@ -18,6 +18,7 @@ public class Phone extends Device implements Salleable {
     String operationSystem;
     Double screenSize;
     Integer yearOfProduction;
+    Set<Application> listOfApp = new HashSet<Application>();
 
     public Phone( String producer, String model,Integer yearOfProduction, String operationSystem, Double screenSize){
         super(model,producer,yearOfProduction);
@@ -80,4 +81,62 @@ public class Phone extends Device implements Salleable {
         System.out.println("Pobieranie aplikacji");
         System.out.println("");
     }
+    public void install(Application app, Human human){
+        if(human.getCash() > app.price){
+            System.out.println("Aplikacja zakupiona!");
+            listOfApp.add(app);
+            human.setCash(human.getCash() - app.price);
+        }else{
+            System.out.println("Niestety nie masz tyle kasy");
+        }
+    }
+    public void isInstall(Application app){
+        for(Application apka:listOfApp){
+            if(app.equals(apka)){
+                System.out.println("Aplikacja jest zainstalowana");
+            }
+        }
+        System.out.println("Aplikacja nie jest zainstalowana");
+    }
+    public void isInstallByName(String name){
+        for(Application apka:listOfApp){
+            if(name == apka.name)
+                System.out.println("Aplikacja jest zainstalowana");
+        }
+        System.out.println("Aplikacja nie jest zainstalowana");
+    }
+    public void freeApp(Set<Application> apps){
+        for(Application app:apps){
+            if(app.price == 0.0){
+                System.out.println(app.name + "Ta aplikacja jest za darmo");
+            }
+        }
+    }
+    public Double valueOfInstallApps(){
+        Double value=0.0;
+        for(Application app:listOfApp){
+            value += app.price;
+        }
+        return value;
+    }
+    public void sortByAlphabet(){
+        ArrayList<String> sorted = new ArrayList<String>();
+
+        for(Application app:listOfApp){
+            sorted.add(app.name);
+        }
+       Collections.sort(sorted);
+        System.out.println(sorted);
+
+    }
+    public void sortByValue(){
+        ArrayList<Double> sorted = new ArrayList<Double>();
+
+        for(Application app:listOfApp){
+            sorted.add(app.price);
+        }
+        Collections.sort(sorted);
+        System.out.println(sorted);
+    }
+
 }
