@@ -1,6 +1,9 @@
-package com.company;
+package creatures;
 
-public class Animal implements Salleable {
+import com.company.Human;
+import com.company.Salleable;
+
+public abstract class Animal implements Salleable, Feedable {
     String name;
     final String species;
     Double weight;
@@ -16,15 +19,6 @@ public class Animal implements Salleable {
                 break;
             default: this.weight = DEFAULT_ANIMAL_WEIGHT;
         }
-    }
-
-    public void feed(){
-        if(this.weight == 0.0){
-            System.out.println("Niestety zwięrze nie żyje nie możesz nakarmić nie żyjącego zwierzaka ? Bro!!");
-            return;
-        }
-        this.weight += 1.0;
-        System.out.println("Dziękuje za jedzenie");
     }
 
     public void takeForAWalk(){
@@ -63,4 +57,14 @@ public class Animal implements Salleable {
         }
 
     }
+    @Override
+    public void feed(){
+        this.weight++;
+        System.out.println("Thanks for food:)");
+    }
+    public void feed(Double foodWeight){
+        this.weight += foodWeight;
+        System.out.println("Thanks for food:)");
+    }
+
 }
